@@ -6,7 +6,7 @@ type Repo = {
     id: number;
     name: string;
     description: string | null;
-    url: string;
+    html_url: string;
 };
 
 function RepoList() {
@@ -40,7 +40,7 @@ function RepoList() {
                 <div key={repo.id} className="border p-4 rounded-xl shadow-sm hover:shadow transition">
                     <h2 className="text-xl font-semibold text-left mb-1">{repo.name}</h2>
                     <p className="text-sm mb-2">{repo.description ?? 'No description provided.'}</p>
-                    <a className="text-blue-500 underline" href={repo.url} target="_blank" rel="noreferrer">
+                    <a className="text-blue-500 underline" href={repo.html_url} target="_blank" rel="noreferrer">
                         View on GitHub
                     </a>
                 </div>
