@@ -1,11 +1,13 @@
 "use client";
 
-import React from "react";
+import {useState} from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
-  const [state, setState] = React.useState(false);
+  const [state, setState] = useState(false);
 
   const menus = [
     { title: "Home", path: "/" },
@@ -14,7 +16,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white w-full border-b md:border-0">
+    <nav className="w-full border-b md:border-0">
       <div className="items-center pr-4 mx-auto md:flex md:pr-8">
         <div className="flex items-center justify-between md:block">
           <Link href="/">
@@ -22,11 +24,14 @@ export default function Navbar() {
           </Link>
            <div className="md:hidden">
             <button
-              className="text-gray-700 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
+              aria-label="Toggle Menu"
+              aria-hidden="true"
+              className="outline-none p-2 rounded-md focus:border-gray-400 focus:border"
               onClick={() => setState(!state)}
             >
               <Menu />
             </button>
+            <ThemeToggle/>
           </div>
         </div>
         
@@ -38,11 +43,14 @@ export default function Navbar() {
     
           <ul className="justify-center items-center pl-6 space-y-8 md:flex md:pl-0 md:space-x-6 md:space-y-0">
             {menus.map((item, idx) => (
-              <li key={idx} className="text-gray-600 hover:text-indigo-600">
+              <li key={idx} className="hover:text-indigo-600">
                 <Link href={item.path}>{item.title}</Link>
               </li>
             ))}
           </ul>
+        </div>
+        <div className="hidden md:block">
+         <ThemeToggle/>
         </div>
       </div>
     </nav>

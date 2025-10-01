@@ -10,7 +10,7 @@ type Repo = {
 };
 
 function RepoList() {
-     const [repos, setRepos] = useState<Repo[]>([]);
+    const [repos, setRepos] = useState<Repo[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -44,7 +44,7 @@ function RepoList() {
                         View on GitHub
                     </a>
                 </div>
-            ))};
+            ))}
         </div>
     ) ;
 }

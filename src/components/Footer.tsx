@@ -8,12 +8,12 @@ export default function Footer() {
           <footer className="flex flex-col items-center justify-center gap-4 row-start-3">
                 <Image
                   src="/ethan_nunn.jpg"
-                  alt="Ethan Nunn"
+                  alt="Ethan Nunn Profile Picture"
                   width={100}
                   height={100}
                   className="rounded-full"
                 />
-                <p className="text-sm text-gray-500">
+                <p className="text-sm">
                   © 2025 Ethan Nunn. All rights reserved.
                 </p>
               </footer>
