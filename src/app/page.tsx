@@ -4,7 +4,7 @@ export default function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
 
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-center sm:text-left">
-          Ethan's React/Next.js Demo
+          Ethan&apos;s React/Next.js Demo
         </h1>
         <p className="text-lg sm:text-xl text-center sm:text-left">
           This is a simple demo of a Next.js app using Tailwind CSS and TypeScript.

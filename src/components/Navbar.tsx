@@ -4,7 +4,7 @@ import {useState} from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-import { useTheme } from "next-themes";
+import Image from "next/image";
 
 export default function Navbar() {
   const [state, setState] = useState(false);
@@ -20,7 +20,11 @@ export default function Navbar() {
       <div className="items-center pr-4 mx-auto md:flex md:pr-8">
         <div className="flex items-center justify-between md:block">
           <Link href="/">
-            <img src="/ethan_nunn_logo.png" alt="Logo" className="h-25 w-auto" />
+            <Image 
+            src="/ethan_nunn_logo.png" 
+            alt="Logo" 
+            height={100}
+            width={250}/>
           </Link>
            <div className="md:hidden">
             <button
