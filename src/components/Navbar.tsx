@@ -35,7 +35,7 @@ export default function Navbar() {
             >
               <Menu />
             </button>
-            <ThemeToggle/>
+             <ThemeToggle testid="mobile-toggle" />
           </div>
         </div>
         
@@ -54,7 +54,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="hidden md:block">
-         <ThemeToggle/>
+         <ThemeToggle testid="desktop-toggle" />
         </div>
       </div>
     </nav>
