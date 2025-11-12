@@ -30,7 +30,7 @@ describe("Navbar", () => {
     expect(navLinks.length == 4).toBeTruthy();
   });
 
-  it("renders  a menu button", () => {
+  it("renders a menu toggle button", () => {
     // Try to find button with label text "Toggle Menu"
     const menuButton = screen.queryByLabelText(/Toggle Menu/i);
 
