@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useState } from 'react';
+import { getRepoList } from '@/lib/github';
+import Link from 'next/link';
 
 type Repo = {
     id: number;
@@ -17,9 +19,7 @@ function RepoList() {
     useEffect(() => {
         const fetchRepos = async () => {
             try {
-                const res = await fetch('https://api.github.com/users/enunn1/repos');
-                if (!res.ok) throw new Error('Failed to fetch repos');
-                const data = await res.json();
+                const data = await getRepoList();
                 setRepos(data);
             } catch (err) {
                 const message = err instanceof Error ? err.message : 'Unknown error';
@@ -37,13 +37,14 @@ function RepoList() {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
             {repos.map(repo => (
-                <div key={repo.id} className="border p-4 rounded-xl shadow-sm hover:shadow transition">
+                <Link 
+                    key={repo.id} 
+                    href={`/portfolio/${repo.name}`}
+                    className="border p-4 rounded-xl shadow-sm hover:shadow transition"
+                >
                     <h2 className="text-xl font-semibold text-left mb-1">{repo.name}</h2>
                     <p className="text-sm mb-2">{repo.description ?? 'No description provided.'}</p>
-                    <a className="text-blue-500 underline" href={repo.html_url} target="_blank" rel="noreferrer">
-                        View on GitHub
-                    </a>
-                </div>
+                </Link>
             ))}
         </div>
     ) ;
