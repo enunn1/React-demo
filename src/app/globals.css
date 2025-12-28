@@ -25,6 +25,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.button {
+  background: var(--foreground);
+  color: var(--background);
+}
+
 nav {
   background: var(--navbar);
 }

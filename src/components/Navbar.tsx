@@ -12,7 +12,8 @@ export default function Navbar() {
   const menus = [
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
-    { title: "Portfolio", path: "/portfolio"}
+    { title: "Portfolio", path: "/portfolio"},
+    { title: "Contact", path: "/contact"}
   ];
 
   return (
