@@ -40,7 +40,7 @@ function RepoList() {
                 <Link 
                     key={repo.id} 
                     href={`/portfolio/${repo.name}`}
-                    className="border p-4 rounded-xl shadow-sm hover:shadow transition"
+                    className="border p-4 rounded-xl shadow-sm hover:shadow hover:bg-blue-500 transition"
                 >
                     <h2 className="text-xl font-semibold text-left mb-1">{repo.name}</h2>
                     <p className="text-sm mb-2">{repo.description ?? 'No description provided.'}</p>
