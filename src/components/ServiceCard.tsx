@@ -12,7 +12,7 @@ export default function ServiceCard({
   icon,
 }: ServiceCardProps) {
   return (
-    <Card className="p-6">
+    <Card className="p-6 service-card">
       {icon && <div className="mb-4 text-blue-500">{icon}</div>}
 
       <h3 className="text-lg font-semibold mb-2">
