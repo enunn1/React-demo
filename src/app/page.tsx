@@ -21,7 +21,7 @@ export default function Home() {
               Request a Quote
             </button>
           </Link>
-          <Link href="/portfolio">
+          <Link href="/featured-projects">
             <button className="secondary-button px-4 py-2 font-semibold rounded-md border border-neutral-300">
               View My Work
             </button>

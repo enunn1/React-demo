@@ -14,7 +14,7 @@ export default function Footer() {
                   className="rounded-full"
                 />
                 <p className="text-sm">
-                  © 2025 Ethan Nunn. All rights reserved.
+                  © 2026 Ethan Nunn. All rights reserved.
                 </p>
               </footer>
     )
