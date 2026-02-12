@@ -7,7 +7,7 @@ export default function Footer() {
     return (
           <footer className="flex flex-col items-center justify-center gap-4 row-start-3">
                 <Image
-                  src="/ethan_nunn.jpg"
+                  src="/profile.jpg"
                   alt="Ethan Nunn Profile Picture"
                   width={100}
                   height={100}
