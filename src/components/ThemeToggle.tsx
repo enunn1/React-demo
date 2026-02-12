@@ -8,7 +8,7 @@ type ThemeToggleProps = {
 }
 
 export default function ThemeToggle(props: ThemeToggleProps) {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // Prevent hydration mismatch
@@ -16,14 +16,16 @@ export default function ThemeToggle(props: ThemeToggleProps) {
 
   if (!mounted) return null;
 
+  const isDark = resolvedTheme === "dark";
+
   return (
     <button
       data-testid={props.testid}
       className="outline-none p-2 rounded-md focus:border-gray-400 focus:border"
       aria-label="Toggle Light/Dark Theme"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
     >
-      {theme === "dark" ? <Moon/> : <Sun/>}
+      {isDark ? <Moon/> : <Sun/>}
     </button>
   );
 }
