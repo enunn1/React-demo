@@ -2,10 +2,31 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Clock, GitFork, Star } from "lucide-react";
 import { featuredByRepo } from "@/data/projects";
 import { getRepoDetails, getRepoList } from "@/lib/github";
+import type { Metadata } from "next";
 
 export async function generateStaticParams() {
   const repos = await getRepoList();
   return repos.map((repo: any) => ({ repo: repo.name }));
+}
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ repo: string }> }
+): Promise<Metadata> {
+  const { repo } = await params;
+
+  const featured = featuredByRepo[repo];
+
+  if (featured) {
+    return {
+      title: featured.title  + " | Ethan Nunn",
+      description: featured.summary,
+    };
+  }
+
+  return {
+    title: repo + " | Ethan Nunn",
+    description: `GitHub repository details for ${repo}.`,
+  };
 }
 
 function Badge({ children }: { children: React.ReactNode }) {
@@ -34,9 +55,9 @@ export default async function ProjectPage({ params }: { params: { repo: string }
     return (
       <main className="max-w-3xl mx-auto py-12 px-6 text-center">
         <h1 className="text-3xl font-semibold mb-4 text-red-500">
-          Error Loading Repository
+          Project Not Found
         </h1>
-        <p className="text-gray-400">{error}</p>
+        <p className="text-gray-400">That project doesn’t exist (or the repository is unavailable).</p>
         <Link href="/portfolio" className="text-blue-500 hover:underline mt-6 block">
           ← Back to Portfolio
         </Link>
@@ -150,7 +171,7 @@ export default async function ProjectPage({ params }: { params: { repo: string }
       <div className="rounded-xl border p-5
                       border-neutral-700 bg-white
                       dark:border-neutral-500 dark:bg-neutral-950">
-        <h2 className="text-lg font-semibold mb-4">Repo stats</h2>
+        <h2 className="text-lg font-semibold mb-4">Technical Stats</h2>
 
         <div className="flex flex-wrap gap-4 text-sm">
           <span className="text-neutral-700 dark:text-neutral-300">
@@ -165,7 +186,7 @@ export default async function ProjectPage({ params }: { params: { repo: string }
           </span>
           {repoDetails.language && (
             <span className="text-neutral-700 dark:text-neutral-300">
-              <strong>Primary:</strong> {repoDetails.language}
+              <strong>Primary Language:</strong> {repoDetails.language}
             </span>
           )}
         </div>

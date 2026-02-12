@@ -1,5 +1,11 @@
 import ContactForm from "@/components/ContactForm";
 
+export const metadata = {
+  title: "Contact Me",
+  description:
+    "Contact page for requesting freelance web development projects. React, Next.js, Angular, and backend API development.",
+};
+
 export default function Page() {
   return  (
     <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
